@@ -1,0 +1,2 @@
+# AetherBot
+A discord bot
