@@ -1,8 +1,6 @@
 # AertherBot
 
-<p align="center">
-  <img src="logo.png" alt="AertherBot Logo" width="150"/>
-</p>
+![Logo](logo.png)
 
 <p align="center">
   A sophisticated Discord bot for tracking study time and managing user profiles with beautifully generated summary cards.
@@ -56,6 +54,8 @@ The standout feature is its dynamic generation of professional, visually appeali
 * **Customizable Profiles:** Users can set a custom "About Me" on their profiles.
 * **Modern Slash Commands:** Easy-to-use and intuitive commands powered by Discord's latest API.
 * **User-to-User Stats:** View the study statistics of other server members.
+* **To-Do List Management:** Add, list, and complete personal tasks with deadlines.
+* **Flexible Reminders:** Set up custom reminders for study or any activity, including recurring and one-time reminders.
 
 ### Built With
 
@@ -118,6 +118,11 @@ Once the bot is running in your server, you can use the following slash commands
 -   To view someone else's profile: `/profile view user:@username`
 -   To edit your "About Me": `/profile edit about:Your new bio here`
 -   To see your study stats: `/stats`
+-   To manage your to-do list: `/todo add task:Read Chapter 5 deadline:2024-06-10`
+-   To view your to-do list: `/todo list`
+-   To mark a task as complete: `/todo complete`
+-   To set up recurring study reminders: `/todo reminders frequency:daily time:18:00`
+-   To set a one-time reminder for a user: `/reminder user:@username duration:30m`
 
 ---
 
@@ -128,6 +133,11 @@ Once the bot is running in your server, you can use the following slash commands
 | `/profile view [user]`      | Displays the profile card of you or another user. |
 | `/profile edit <about>`     | Updates your "About Me" section.                |
 | `/stats [user]`             | Shows the study statistics for you or another user. |
+| `/todo add <task> [deadline]`      | Add a new task to your to-do list, with an optional deadline.           |
+| `/todo list`                      | List your current to-do tasks.                                          |
+| `/todo complete`                  | Mark a selected task as complete.                                       |
+| `/todo reminders <frequency> <time>` | Set up recurring study reminders (daily, weekly, monthly) at a specific time. |
+| `/reminder <user> <duration>`     | Set a one-time reminder for a user after a specified duration (e.g., 30m, 2h). |
 | *... (more things are coming soon)* |                                                 |
 
 ---
@@ -154,6 +164,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Mohit Meemruath - mohimeemrauth2023@gmail.com
+**Mohit Meemruath**
 
-Project Link: [https://github.com/Mohi1038/AertherBot](https://github.com/Mohi1038/AertherBot)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:mohimeemrauth2023@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Mohi1038)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohit-meemrauth/)
