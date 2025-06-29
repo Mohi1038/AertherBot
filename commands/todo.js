@@ -63,7 +63,7 @@ module.exports = {
       await Todo.addTask(userId, guildId, task, deadline);
       await interaction.reply({
         content: '✅ Task added to your to-do list!',
-        ephemeral: true
+        flags: 64 // 64 = ephemeral flag
       });
       
     } else if (subcommand === 'list') {
@@ -72,7 +72,7 @@ module.exports = {
       if (tasks.length === 0) {
         return interaction.reply({
           content: 'You have no tasks in your to-do list!',
-          ephemeral: true
+          flags: 64
         });
       }
       
@@ -83,7 +83,7 @@ module.exports = {
           `**${index + 1}.** ${task.task}${task.deadline ? ` (📅 ${task.deadline})` : ''}`
         ).join('\n'));
       
-      await interaction.reply({ embeds: [embed], ephemeral: true });
+      await interaction.reply({ embeds: [embed], flags: 64 });
       
     } else if (subcommand === 'complete') {
       const tasks = await Todo.getTasks(userId, guildId);
@@ -91,7 +91,7 @@ module.exports = {
       if (tasks.length === 0) {
         return interaction.reply({
           content: 'You have no tasks to complete!',
-          ephemeral: true
+          flags: 64
         });
       }
       
@@ -108,7 +108,7 @@ module.exports = {
       await interaction.reply({
         content: 'Select a task to mark as complete:',
         components: [row],
-        flags: 'Ephemeral'
+        flags: 64
       });
       
     } else if (subcommand === 'reminders') {
@@ -122,7 +122,7 @@ module.exports = {
       
       await interaction.reply({
         content: `✅ Reminders set to ${frequency} at ${time}`,
-        ephemeral: true
+        flags: 64
       });
     }
   }

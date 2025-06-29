@@ -11,10 +11,20 @@ module.exports = {
       await command.execute(interaction);
     } catch (error) {
       console.error(`Error executing ${interaction.commandName}`, error);
-      await interaction.reply({
-        content: 'There was an error while executing this command!',
-        ephemeral: true
-      });
+      
+      // Check if interaction has already been replied to
+      if (!interaction.replied && !interaction.deferred) {
+        await interaction.reply({
+          content: 'There was an error while executing this command!',
+          flags: 64 // 64 = ephemeral flag
+        });
+      } else {
+        // If already replied, try to follow up
+        await interaction.followUp({
+          content: 'There was an error while executing this command!',
+          flags: 64
+        });
+      }
     }
   }
 };

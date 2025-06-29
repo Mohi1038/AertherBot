@@ -24,13 +24,13 @@ module.exports = {
     if (!msDuration || msDuration > 24 * 60 * 60 * 1000) {
       return await interaction.reply({
         content: '❌ Please provide a valid duration (e.g. 30m, 2h), less than 24h.',
-        ephemeral: true
+        flags: 64 // 64 = ephemeral flag
       });
     }
 
     await interaction.reply({
       content: `⏳ Reminder set! I'll ping ${user} in ${duration}.`,
-      ephemeral: true
+      flags: 64
     });
 
     setTimeout(() => {

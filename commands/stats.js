@@ -23,7 +23,7 @@ module.exports = {
       console.error('Stats command failed:', error);
       await interaction.reply({
         content: '❌ Failed to fetch study statistics',
-        ephemeral: true
+        flags: 64 // 64 = ephemeral flag
       });
     }
   }

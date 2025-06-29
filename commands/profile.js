@@ -45,7 +45,7 @@ module.exports = {
       await User.update(interaction.user.id, interaction.guild.id, { about });
       await interaction.reply({
         content: '✅ Your profile has been updated!',
-        ephemeral: true
+        flags: 64 // 64 = ephemeral flag
       });
     }
   }
