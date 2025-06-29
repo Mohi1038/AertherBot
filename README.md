@@ -110,6 +110,72 @@ Make sure you have Node.js and npm installed on your system.
 
 ---
 
+## Deployment
+
+### Deploying to Render
+
+Render is a great platform for hosting Discord bots. Follow these steps to deploy your AertherBot:
+
+1. **Fork/Clone your repository** to GitHub if you haven't already.
+
+2. **Sign up for Render** at [render.com](https://render.com) and connect your GitHub account.
+
+3. **Create a new Web Service:**
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Choose the repository containing your bot
+
+4. **Configure the service:**
+   - **Name:** `aetherbot` (or your preferred name)
+   - **Environment:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `node bot.js`
+
+5. **Set Environment Variables:**
+   - `DISCORD_TOKEN` - Your Discord bot token
+   - `CLIENT_ID` - Your Discord bot client ID
+   - `DATABASE_URL` - Your Supabase PostgreSQL connection string
+   - `NODE_ENV` - Set to `production`
+
+6. **Deploy Slash Commands:**
+   After deployment, run this command locally once to register slash commands:
+   ```sh
+   npm run deploy-commands
+   ```
+
+7. **Your bot will be live!** Render will provide you with a URL where your bot is running.
+
+### Database Setup with Supabase
+
+1. **Create a Supabase Account:**
+   - Go to [supabase.com](https://supabase.com) and sign up
+   - Create a new project
+
+2. **Get Your Database URL:**
+   - Go to Settings → Database
+   - Copy the connection string (it looks like: `postgresql://postgres.yexyfpxjdqebkeogreck:[password]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres`)
+
+3. **Set Up Database Tables:**
+   - Go to SQL Editor in your Supabase dashboard
+   - Copy and paste the contents of `supabase-schema.sql`
+   - Run the SQL to create all necessary tables
+
+4. **Environment Variables for Render:**
+   ```
+   DATABASE_URL=postgresql://postgres.yexyfpxjdqebkeogreck:Mohi@13032006@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
+   NODE_ENV=production
+   CLIENT_ID=1383749755045412925
+   ```
+
+### Alternative Database Options
+
+For production, you can also use:
+- **PlanetScale** (MySQL-compatible, free tier available)
+- **Railway** (PostgreSQL/MySQL)
+- **AWS RDS** (MySQL/PostgreSQL)
+
+---
+
 ## Usage
 
 Once the bot is running in your server, you can use the following slash commands:
