@@ -1,7 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const config = require('./config.json');
+require('dotenv').config();
 
 const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
@@ -19,14 +19,14 @@ for (const file of commandFiles) {
 }
 
 // Register commands globally
-const rest = new REST({ version: '10' }).setToken(config.token);
+const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
 (async () => {
   try {
     console.log(`🔁 Refreshing ${commands.length} application (/) commands globally...`);
 
     await rest.put(
-      Routes.applicationCommands(config.clientId),
+      Routes.applicationCommands(process.env.CLIENT_ID),
       { body: commands },
     );
 
