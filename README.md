@@ -1,4 +1,4 @@
-# AertherBot
+# AetherBot
 
 ![Logo](logo.png)
 
@@ -8,9 +8,9 @@
   <a href="#about-the-project"><strong>Explore the docs »</strong></a>
   <br />
   <br />
-  <a href="https://github.com/Mohi1038/AertherBot/issues">Report Bug</a>
+  <a href="https://github.com/Mohi1038/AetherBot/issues">Report Bug</a>
   ·
-  <a href="https://github.com/Mohi1038/AertherBot/issues">Request Feature</a>
+  <a href="https://github.com/Mohi1038/AetherBot/issues">Request Feature</a>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -43,7 +43,7 @@
 
 ## About The Project
 
-**AertherBot** is a powerful and intuitive Discord bot designed to enhance server productivity and community engagement. It provides robust tools for users to track their study sessions, view detailed statistics, and customize their public profiles.
+**AetherBot** is a powerful and intuitive Discord bot designed to enhance server productivity and community engagement. It provides robust tools for users to track their study sessions, view detailed statistics, and customize their public profiles.
 
 The standout feature is its dynamic generation of professional, visually appealing profile and stats cards, offering a modern and personalized user experience.
 
@@ -82,8 +82,8 @@ Make sure you have Node.js and npm installed on your system.
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/Mohi1038/AertherBot.git
-    cd AertherBot
+    git clone https://github.com/Mohi1038/AetherBot.git
+    cd AetherBot
     ```
 2.  **Install NPM packages:**
     ```sh
@@ -114,7 +114,7 @@ Make sure you have Node.js and npm installed on your system.
 
 ### Deploying to Render
 
-Render is a great platform for hosting Discord bots. Follow these steps to deploy your AertherBot:
+Render is a great platform for hosting Discord bots. Follow these steps to deploy your AetherBot:
 
 1. **Fork/Clone your repository** to GitHub if you haven't already.
 
