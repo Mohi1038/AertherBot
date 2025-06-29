@@ -19,10 +19,10 @@ module.exports = {
         // Update bot status
         const updateStatus = async () => {
             try {
-                const [rows] = await db.execute(
+                const result = await db.query(
                     'SELECT SUM(total_minutes) as total FROM user_study_time'
                 );
-                const totalHours = Math.floor((rows[0]?.total || 0) / 60);
+                const totalHours = Math.floor((result.rows[0]?.total || 0) / 60);
                 client.user.setActivity(`${totalHours} study hours tracked`, { 
                     type: 'WATCHING' 
                 });

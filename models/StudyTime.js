@@ -1,7 +1,7 @@
 const db = require('../config/database');
 
 // Test connection immediately
-db.execute('SELECT 1')
+db.query('SELECT NOW()')
   .then(() => console.log('✅ StudyTime DB connection verified'))
   .catch(err => {
     console.error('❌ StudyTime DB connection failed:', err);
@@ -11,11 +11,11 @@ db.execute('SELECT 1')
 const StudyTime = {
   updateTime: async (userId, guildId, minutes) => {
     try {
-      await db.execute(
-        `INSERT INTO user_study_time (user_id, guild_id, total_minutes)
-         VALUES (?, ?, ?)
-         ON DUPLICATE KEY UPDATE
-         total_minutes = total_minutes + VALUES(total_minutes),
+      await db.query(
+        `INSERT INTO user_study_time (user_id, guild_id, total_minutes, last_update)
+         VALUES ($1, $2, $3, CURRENT_TIMESTAMP)
+         ON CONFLICT (user_id, guild_id) DO UPDATE SET
+         total_minutes = user_study_time.total_minutes + EXCLUDED.total_minutes,
          last_update = CURRENT_TIMESTAMP`,
         [userId, guildId, minutes]
       );
@@ -28,11 +28,11 @@ const StudyTime = {
 
   get: async (userId, guildId) => {
     try {
-      const [rows] = await db.execute(
-        'SELECT * FROM user_study_time WHERE user_id = ? AND guild_id = ?',
+      const result = await db.query(
+        'SELECT * FROM user_study_time WHERE user_id = $1 AND guild_id = $2',
         [userId, guildId]
       );
-      return rows[0];
+      return result.rows[0];
     } catch (error) {
       console.error('Get error:', error);
       throw error;
